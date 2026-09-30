@@ -1,3 +1,7 @@
+// score tracking variables 
+let humanScore = 0;
+let computerScore = 0; 
+
 function getHumanChoice() {
 
     // Get the choice made by the player
