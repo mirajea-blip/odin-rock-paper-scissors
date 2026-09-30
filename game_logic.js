@@ -2,6 +2,72 @@
 let humanScore = 0;
 let computerScore = 0; 
 
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
+
+function playRound(humanChoice, computerChoice) {
+
+    // Deal with tie case
+    if (computerChoice.toUpperCase() === humanChoice.toUpperCase()) {
+
+        console.log("It's a tie !")
+
+    }
+
+    else if (computerChoice === "rock") {
+
+        // Compare human and computer choices then send winning or losing messages
+        // while keeping track of the score
+        if (humanChoice.toUpperCase() === "PAPER") {
+
+            humanScore += 1;
+            console.log("You win ! Paper beats rock ")
+
+        } else {
+
+            computerScore += 1;
+            console.log("You lose ! Scissors loses to rock ")
+
+        }
+
+    }
+
+    else if (computerChoice === "paper") {
+
+        if (humanChoice.toUpperCase() === "SCISSORS") {
+
+            humanScore += 1;
+            console.log("You win ! Scissors beats paper ")
+
+        } else {
+
+            computerScore += 1;
+            console.log("You lose ! Rock loses to paper ")
+
+        }
+
+    }
+
+    else {
+
+        if (humanChoice.toUpperCase() === "ROCK") {
+
+            humanScore += 1;
+            console.log("You win ! Rock beats scissors ")
+
+        } else {
+
+            computerScore += 1;
+            console.log("You lose ! Paper loses to scissors ")
+
+        }
+
+    }
+
+}
+
 function getHumanChoice() {
 
     // Get the choice made by the player
