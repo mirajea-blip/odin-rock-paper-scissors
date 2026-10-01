@@ -77,7 +77,7 @@ function  playGame() {
 
     }
 
-    // show the winner 
+    // show the winner or the tie message
     if (humanScore > computerScore) {
 
         console.log("Congratulations, you won" + humanScore + " to " + computerScore + " ! " )
