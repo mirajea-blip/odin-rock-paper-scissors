@@ -9,7 +9,7 @@ const paperButton = scissorsButton.previousElementSibling;
 
 const computerScoreBoard = document.querySelector("p").firstElementChild;
 const playerScoreBoard = document.querySelector("p").lastElementChild;
-
+const roundResult = document.querySelector(".result").firstElementChild;
 
 const getComputerChoice = () => {
 
@@ -31,14 +31,14 @@ const getComputerChoice = () => {
 
 }
 
-function playRound(humanChoice, getComputerChoice, computerScoreBoard, playerScoreBoard) {
+function playRound(humanChoice) {
 
     const computerChoice = getComputerChoice();
 
     // Deal with tie case
     if (computerChoice.toUpperCase() === humanChoice.toUpperCase()) {
 
-        console.log("It's a tie !")
+        roundResult.textContent = "It's a tie !"
 
     }
 
@@ -50,13 +50,13 @@ function playRound(humanChoice, getComputerChoice, computerScoreBoard, playerSco
 
             humanScore += 1; 
             playerScoreBoard.textContent = humanScore;
-            console.log("You win ! Paper beats rock ")
+            roundResult.textContent = "You win ! Paper beats rock "
 
         } else {
 
             computerScore += 1;
             computerScoreBoard.textContent = computerScore;
-            console.log("You lose ! Scissors loses to rock ")
+            roundResult.textContent = "You lose ! Scissors loses to rock "
 
         }
 
@@ -68,13 +68,13 @@ function playRound(humanChoice, getComputerChoice, computerScoreBoard, playerSco
 
             humanScore += 1;
             playerScoreBoard.textContent = humanScore;
-            console.log("You win ! Scissors beats paper ")
+            roundResult.textContent = "You win ! Scissors beats paper "
 
         } else {
 
             computerScore += 1;
             computerScoreBoard.textContent = computerScore;
-            console.log("You lose ! Rock loses to paper ")
+            roundResult.textContent = "You lose ! Rock loses to paper "
 
         }
 
@@ -86,13 +86,13 @@ function playRound(humanChoice, getComputerChoice, computerScoreBoard, playerSco
 
             humanScore += 1;
             playerScoreBoard.textContent = humanScore;
-            console.log("You win ! Rock beats scissors ")
+            roundResult.textContent = "You win ! Rock beats scissors "
 
         } else {
 
             computerScore += 1;
             computerScoreBoard.textContent = computerScore;
-            console.log("You lose ! Paper loses to scissors ")
+            roundResult.textContent = "You lose ! Paper loses to scissors "
 
         }
 
@@ -100,9 +100,9 @@ function playRound(humanChoice, getComputerChoice, computerScoreBoard, playerSco
 
 }
 
-rockButton.addEventListener("click", () => {playRound("ROCK", getComputerChoice, computerScoreBoard, playerScoreBoard)});
-paperButton.addEventListener("click", () => {playRound("PAPER", getComputerChoice, computerScoreBoard, playerScoreBoard)});
-scissorsButton.addEventListener("click", () => {playRound("SCISSORS", getComputerChoice, computerScoreBoard, playerScoreBoard)});
+rockButton.addEventListener("click", () => {playRound("ROCK")});
+paperButton.addEventListener("click", () => {playRound("PAPER")});
+scissorsButton.addEventListener("click", () => {playRound("SCISSORS")});
 
 
 // show the winner or the tie message
