@@ -67,20 +67,10 @@ function  playGame() {
     let humanScore = 0;
     let computerScore = 0;
 
-    // play the 5 rounds
-    for (i=0; i<=5; i++) {
-
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-
-        playRound(humanSelection, computerSelection);
-
-    }
-
     // show the winner or the tie message
     if (humanScore > computerScore) {
 
-        console.log("Congratulations, you won" + humanScore + " to " + computerScore + " ! " )
+        console.log("Congratulations, you won " + humanScore + " to " + computerScore + " ! " )
 
     } else if (humanScore < computerScore) {
 
