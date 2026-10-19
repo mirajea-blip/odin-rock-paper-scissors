@@ -1,88 +1,84 @@
-playGame();
+// score tracking variables 
+let humanScore = 0;
+let computerScore = 0;
 
-function  playGame() {
-    
-    function playRound(humanChoice, computerChoice) {
+function playRound(humanChoice, computerChoice) {
 
-        // Deal with tie case
-        if (computerChoice.toUpperCase() === humanChoice.toUpperCase()) {
+    // Deal with tie case
+    if (computerChoice.toUpperCase() === humanChoice.toUpperCase()) {
 
-            console.log("It's a tie !")
+        console.log("It's a tie !")
 
-        }
+    }
 
-        else if (computerChoice === "rock") {
+    else if (computerChoice === "rock") {
 
-            // Compare human and computer choices then send winning or losing messages
-            // while keeping track of the score
-            if (humanChoice.toUpperCase() === "PAPER") {
+        // Compare human and computer choices then send winning or losing messages
+        // while keeping track of the score
+        if (humanChoice.toUpperCase() === "PAPER") {
 
-                humanScore += 1;
-                console.log("You win ! Paper beats rock ")
+            humanScore += 1;
+            console.log("You win ! Paper beats rock ")
 
-            } else {
+        } else {
 
-                computerScore += 1;
-                console.log("You lose ! Scissors loses to rock ")
-
-            }
-
-        }
-
-        else if (computerChoice === "paper") {
-
-            if (humanChoice.toUpperCase() === "SCISSORS") {
-
-                humanScore += 1;
-                console.log("You win ! Scissors beats paper ")
-
-            } else {
-
-                computerScore += 1;
-                console.log("You lose ! Rock loses to paper ")
-
-            }
-
-        }
-
-        else {
-
-            if (humanChoice.toUpperCase() === "ROCK") {
-
-                humanScore += 1;
-                console.log("You win ! Rock beats scissors ")
-
-            } else {
-
-                computerScore += 1;
-                console.log("You lose ! Paper loses to scissors ")
-
-            }
+            computerScore += 1;
+            console.log("You lose ! Scissors loses to rock ")
 
         }
 
     }
 
-    // score tracking variables 
-    let humanScore = 0;
-    let computerScore = 0;
+    else if (computerChoice === "paper") {
 
-    // show the winner or the tie message
-    if (humanScore > computerScore) {
+        if (humanChoice.toUpperCase() === "SCISSORS") {
 
-        console.log("Congratulations, you won " + humanScore + " to " + computerScore + " ! " )
+            humanScore += 1;
+            console.log("You win ! Scissors beats paper ")
 
-    } else if (humanScore < computerScore) {
+        } else {
 
-        console.log("You lost " + humanScore + " to " + computerScore + ", don't give up and try again ! " )
+            computerScore += 1;
+            console.log("You lose ! Rock loses to paper ")
 
-    } else {
+        }
 
-        console.log("It's a tie " + humanScore + " to " + computerScore + " !  Let's play again !")
+    }
+
+    else {
+
+        if (humanChoice.toUpperCase() === "ROCK") {
+
+            humanScore += 1;
+            console.log("You win ! Rock beats scissors ")
+
+        } else {
+
+            computerScore += 1;
+            console.log("You lose ! Paper loses to scissors ")
+
+        }
 
     }
 
 }
+
+// show the winner or the tie message
+if (humanScore > computerScore) {
+
+    console.log("Congratulations, you won " + humanScore + " to " + computerScore + " ! " )
+
+} else if (humanScore < computerScore) {
+
+    console.log("You lost " + humanScore + " to " + computerScore + ", don't give up and try again ! " )
+
+} else {
+
+    console.log("It's a tie " + humanScore + " to " + computerScore + " !  Let's play again !")
+
+}
+
+
 
 
 function getHumanChoice() {
