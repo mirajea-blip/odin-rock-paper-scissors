@@ -83,18 +83,6 @@ if (humanScore > computerScore) {
 
 }
 
-
-
-
-function getHumanChoice() {
-
-    // Get the choice made by the player
-    const humanChoice = prompt("Choose rock, paper or scissors")
-
-    return humanChoice
-
-}
-
 function getComputerChoice() {
 
     // get a number between 0 and 3 (3 is not included)
