@@ -7,7 +7,29 @@ const rockButton = playButtons.firstElementChild;
 const scissorsButton = playButtons.lastElementChild;
 const paperButton = scissorsButton.previousElementSibling;
 
-function playRound(humanChoice, computerChoice) {
+const getComputerChoice = () => {
+
+    // get a number between 0 and 3 (3 is not included)
+    const choiceNumber = Math.random()*3;
+
+    // define computer choice based on the number 
+    if (choiceNumber<1) {
+        return "rock"
+    } 
+
+    else if (choiceNumber>=1 && choiceNumber<2) {
+        return "paper"
+    }
+
+    else {
+        return "scissors"
+    }
+
+}
+
+function playRound(humanChoice, getComputerChoice) {
+
+    const computerChoice = getComputerChoice();
 
     // Deal with tie case
     if (computerChoice.toUpperCase() === humanChoice.toUpperCase()) {
@@ -68,6 +90,11 @@ function playRound(humanChoice, computerChoice) {
 
 }
 
+rockButton.addEventListener("click", () => {playRound("ROCK", getComputerChoice)});
+paperButton.addEventListener("click", () => {playRound("PAPER", getComputerChoice)});
+scissorsButton.addEventListener("click", () => {playRound("SCISSORS", getComputerChoice)});
+
+
 // show the winner or the tie message
 if (humanScore > computerScore) {
 
@@ -83,23 +110,5 @@ if (humanScore > computerScore) {
 
 }
 
-function getComputerChoice() {
 
-    // get a number between 0 and 3 (3 is not included)
-    const choiceNumber = Math.random()*3;
-
-    // define computer choice based on the number 
-    if (choiceNumber<1) {
-        return "rock"
-    } 
-
-    else if (choiceNumber>=1 && choiceNumber<2) {
-        return "paper"
-    }
-
-    else {
-        return "scissors"
-    }
-
-}
 
