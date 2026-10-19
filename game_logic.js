@@ -2,6 +2,11 @@
 let humanScore = 0;
 let computerScore = 0;
 
+const playButtons = document.querySelector(".playButtons");
+const rockButton = playButtons.firstElementChild;
+const scissorsButton = playButtons.lastElementChild;
+const paperButton = scissorsButton.previousElementSibling;
+
 function playRound(humanChoice, computerChoice) {
 
     // Deal with tie case
