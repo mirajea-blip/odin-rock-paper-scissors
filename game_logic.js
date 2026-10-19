@@ -9,7 +9,8 @@ const paperButton = scissorsButton.previousElementSibling;
 
 const computerScoreBoard = document.querySelector("p").firstElementChild;
 const playerScoreBoard = document.querySelector("p").lastElementChild;
-const roundResult = document.querySelector(".result").firstElementChild;
+const roundResult = document.querySelector(".roundResult").firstElementChild;
+const gameResult = document.querySelector(".gameResult").firstElementChild;
 
 const getComputerChoice = () => {
 
@@ -27,6 +28,26 @@ const getComputerChoice = () => {
 
     else {
         return "scissors"
+    }
+
+}
+
+function endGame() {
+
+    if (computerScore === 5) {
+
+        gameResult.textContent = " THE COMPUTER WON ";
+        while (playButtons.hasChildNodes()) {
+            playButtons.removeChild(playButtons.firstChild);
+        }
+
+    } else if (humanScore === 5) {
+
+        gameResult.textContent = " THE PLAYER WON ";
+        while (playButtons.hasChildNodes()) {
+            playButtons.removeChild(playButtons.firstChild);
+        }
+
     }
 
 }
@@ -98,27 +119,13 @@ function playRound(humanChoice) {
 
     }
 
+    endGame();
+
 }
 
 rockButton.addEventListener("click", () => {playRound("ROCK")});
 paperButton.addEventListener("click", () => {playRound("PAPER")});
 scissorsButton.addEventListener("click", () => {playRound("SCISSORS")});
-
-
-// show the winner or the tie message
-if (humanScore > computerScore) {
-
-    console.log("Congratulations, you won " + humanScore + " to " + computerScore + " ! " )
-
-} else if (humanScore < computerScore) {
-
-    console.log("You lost " + humanScore + " to " + computerScore + ", don't give up and try again ! " )
-
-} else {
-
-    console.log("It's a tie " + humanScore + " to " + computerScore + " !  Let's play again !")
-
-}
 
 
 
